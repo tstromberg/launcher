@@ -50,7 +50,7 @@ type PackageOptions struct {
 	OmitSecret        bool
 	CertPins          string
 	RootPEM           string
-	BinRootDir		  string
+	BinRootDir        string
 	CacheDir          string
 	TufServerURL      string
 	MirrorURL         string
@@ -295,7 +295,7 @@ func (p *PackageOptions) Build(ctx context.Context, packageWriter io.Writer, tar
 		Title:                    p.Title,
 		Root:                     p.packageRoot,
 		Scripts:                  p.scriptRoot,
-		ContainerTool:			  p.ContainerTool,
+		ContainerTool:            p.ContainerTool,
 		AppleNotarizeAccountId:   p.AppleNotarizeAccountId,
 		AppleNotarizeAppPassword: p.AppleNotarizeAppPassword,
 		AppleNotarizeUserId:      p.AppleNotarizeUserId,

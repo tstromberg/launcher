@@ -253,7 +253,7 @@ func runMake(args []string) error {
 		OmitSecret:        *flOmitSecret,
 		CertPins:          *flCertPins,
 		RootPEM:           *flRootPEM,
-		BinRootDir: 	   *flBinRootDir,
+		BinRootDir:        *flBinRootDir,
 		CacheDir:          cacheDir,
 		TufServerURL:      *flTufURL,
 		MirrorURL:         *flMirrorURL,

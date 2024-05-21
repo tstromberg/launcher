@@ -4,6 +4,7 @@ all: build
 
 GOPATH ?= $(HOME)/go
 PATH := $(GOPATH)/bin:$(PATH)
+# Set LINKSTAMP="" to avoid version stamping outputs
 LINKSTAMP ?= "-linkstamp"
 
 # Set the target version of macOS. This is an ENV that is consumed by go build (and downstream c pieces)

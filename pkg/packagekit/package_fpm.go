@@ -134,7 +134,6 @@ func PackageFPM(ctx context.Context, w io.Writer, po *PackageOptions, fpmOpts ..
 		fpmCommand = append(fpmCommand, "--before-remove", filepath.Join("/pkgscripts", "prerm"))
 	}
 
-
 	args := []string{
 		"run", "--rm",
 		"-v", fmt.Sprintf("%s:/pkgsrc:Z", po.Root),

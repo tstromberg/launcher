@@ -10,6 +10,7 @@ type PackageOptions struct {
 	Scripts    string // directory of packaging scripts (postinst, prerm, etc)
 	Version    string // package version
 	FlagFile   string // Path to the flagfile for configuration
+	ContainerTool string // Name of container orchestration system to use (docker, podman)
 
 	DisableService bool // Whether to install a system service in a disabled state
 

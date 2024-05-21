@@ -35,6 +35,7 @@ type PackageOptions struct {
 	PackageVersion    string // What version in this package. If unset, autodetection will be attempted.
 	OsqueryVersion    string
 	OsqueryFlags      []string // Additional flags to pass to the runtime osquery instance
+	ContainerTool     string
 	LauncherVersion   string
 	ExtensionVersion  string
 	Hostname          string
@@ -49,6 +50,7 @@ type PackageOptions struct {
 	OmitSecret        bool
 	CertPins          string
 	RootPEM           string
+	BinRootDir		  string
 	CacheDir          string
 	TufServerURL      string
 	MirrorURL         string
@@ -293,6 +295,7 @@ func (p *PackageOptions) Build(ctx context.Context, packageWriter io.Writer, tar
 		Title:                    p.Title,
 		Root:                     p.packageRoot,
 		Scripts:                  p.scriptRoot,
+		ContainerTool:			  p.ContainerTool,
 		AppleNotarizeAccountId:   p.AppleNotarizeAccountId,
 		AppleNotarizeAppPassword: p.AppleNotarizeAppPassword,
 		AppleNotarizeUserId:      p.AppleNotarizeUserId,
@@ -721,7 +724,7 @@ fi`
 func (p *PackageOptions) setupDirectories() error {
 	switch p.target.Platform {
 	case Linux, Darwin:
-		p.binDir = filepath.Join("/opt", p.Identifier, "bin")
+		p.binDir = filepath.Join(p.BinRootDir, p.Identifier, "bin")
 		p.confDir = filepath.Join("/etc", p.Identifier)
 		p.rootDir = filepath.Join("/var", p.Identifier, sanitizeHostname(p.Hostname))
 	case Windows:
